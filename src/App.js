@@ -1,7 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  const callApi = async () => {
+    const res = await fetch(
+      "https://github.com/ONDC-Official/mobility-specification/blob/draft-1.x/ui/build.js"
+    );
+    const ParsedData = await res.json();
+    console.log("ParsedData", ParsedData);
+  };
+
+  useEffect(() => {
+    callApi();
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
